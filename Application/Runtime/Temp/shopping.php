@@ -1,0 +1,1 @@
+a:3:{s:12:"freight_free";s:7:"1000000";s:10:"point_rate";s:3:"100";s:17:"auto_confirm_date";s:1:"1";}

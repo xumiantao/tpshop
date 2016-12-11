@@ -1,0 +1,185 @@
+<include file="Public/min-header"/>
+<div class="wrapper">
+  <include file="Public/breadcrumb"/>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-list"></i> 用户列表</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="navbar navbar-default">
+
+                    </div>
+                    <div id="ajax_return">
+                        <table class="table table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);"></td>
+    
+                                    <td class="text-right">
+                                        <a href="javascript:sort('user_id');">ID</a>
+                                    </td>
+                                    <td class="text-left">
+                                        <a href="javascript:sort('username');">会员昵称</a>
+                                    </td>
+                                    <td class="text-left">
+                                        <a href="javascript:sort('level');">会员等级</a>
+                                    </td>
+                                    <td class="text-left">
+                                        <a href="javascript:sort('total_amount');">消费累计额度</a>
+                                    </td>
+                                    <td class="text-left">
+                                        <a href="javascript:sort('email');">邮件地址</a>
+                                    </td>
+                                    
+                                    <td class="text-left">
+                                        <a href="javascript:void(0);"></a>
+                                    </td>
+                                    <td class="text-left">
+                                        <a href="javascript:void(0);"></a>
+                                    </td>
+                                    <td class="text-left">
+                                        <a href="javascript:void(0);"></a>
+                                    </td>
+                                    
+                                    <td class="text-left">
+                                        <a href="javascript:sort('mobile');">手机号码</a>
+                                    </td>
+                                    <td class="text-left">
+                                        <a href="javascript:sort('pay_points');"></a>
+                                    </td>
+                                    <td class="text-left">
+                                        <a href="javascript:sort('reg_time');"></a>
+                                    </td>
+                                    <td class="text-right">操作</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                  <volist name="user" id="vo">                  
+                                    <tr>
+                                        <td class="text-center">
+                                            <input type="checkbox" name="selected[]" value="2593">
+                                            <input type="hidden" name="shipping_code[]" value="flat.flat">
+                                        </td>
+                                        <td class="text-right">{$vo.user_id}</td>
+                                        <td class="text-left">{$vo.username}</td>
+                                        <td class="text-left">{$vo.level}</td>
+                                        <td class="text-left">{$vo.total_amount}</td>
+                                        <td class="text-left">{$vo.email}</td>                                                                                    </td>
+                                        <td class="text-left">0</td>
+                                        <td class="text-left">0</td>
+                                        <td class="text-left">0</td>
+                                        <td class="text-left">{$vo.mobile}</td>
+                                        <td class="text-left">0</td>
+                                        <td class="text-left"></td>
+                                        <td class="text-right">
+                                            <a href="{:U('Home/Index/deluser',array('id'=>$vo['user_id']))}" id="button-delete6" data-toggle="tooltip" title="" class="btn btn-danger" data-original-title="删除"><i class="fa fa-trash-o"></i></a>
+                                        </td>
+                                    </tr>      
+                    </volist>                       
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<script>
+    // $(document).ready(function(){
+    //     ajax_get_table('search-form2',1);
+
+    // });
+
+    // ajax 抓取页面
+    function ajax_get_table(tab,page){
+        cur_page = page; //当前页面 保存为全局变量
+            $.ajax({
+                type : "POST",
+                url:"/index.php/Admin/user/ajaxindex/p/"+page,//+tab,
+                data : $('#'+tab).serialize(),// 你的formid
+                success: function(data){
+                    $("#ajax_return").html('');
+                    $("#ajax_return").append(data);
+                }
+            });
+    }
+
+    // 点击排序
+    function sort(field)
+    {
+        $("input[name='order_by']").val(field);
+        var v = $("input[name='sort']").val() == 'desc' ? 'asc' : 'desc';
+        $("input[name='sort']").val(v);
+        ajax_get_table('search-form2',cur_page);
+    }
+
+    //发送站内信
+    function send_message(id)
+    {
+        var obj = $("input[name*='selected']");
+        var url = "{:U('Admin/User/sendMessage')}";
+        if(obj.is(":checked")){
+            var check_val = [];
+            for(var k in obj){
+                if(obj[k].checked)
+                    check_val.push(obj[k].value);
+            }
+            url += "?user_id_array="+check_val;
+        }
+        layer.open({
+            type: 2,
+            title: '站内信',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['580px', '480px'],
+            content: url
+        });
+    }
+
+    //发送邮件
+    function send_mail(id)
+    {
+        var obj = $("input[name*='selected']");
+        var url = "{:U('Admin/User/sendMail')}";
+        if(obj.is(":checked")){
+            var check_val = [];
+            for(var k in obj){
+                if(obj[k].checked)
+                    check_val.push(obj[k].value);
+            }
+            url += "?user_id_array="+check_val;
+            layer.open({
+                type: 2,
+                title: '发送邮箱',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['580px', '480px'],
+                content: url
+            });
+        }else{
+            layer.msg('请选择会员');
+        }
+
+    }
+
+    /**
+     * 回调函数
+     */
+    function call_back(v) {
+        layer.closeAll();
+        if (v == 1) {
+            layer.msg('发送成功');
+        } else {
+            layer.msg('发送失败');
+        }
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+
+a {
+	color: #555;
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+* html .clearfix {
+	zoom: 1;
+}
+
+
+/* IE6 */
+
+*:first-child+html .clearfix {
+	zoom: 1;
+}
+
+
+/* IE7 */
+
+
+/*tab*/
+
+
+
+/*商品详细页*/
+
+
+/*iteminfo*/
+
+.iteminfo {}
+
+.iteminfo_tit {
+	color: #333;
+	border-bottom: 1px solid #e3e3e3;
+	font-weight: normal;
+	padding-bottom: 12px;
+	line-height: 32px;
+}
+
+.iteminfo_parameter {
+	/*padding: 8px 0;*/
+	padding-left: 10px;
+}
+
+/*.iteminfo_parameter_default {
+	color: #888;
+}*/
+
+.iteminfo_parameter dt {
+	float: left;
+	display: inline;
+	width: 30px;
+	white-space: nowrap;
+	color: #888;
+	font-size: 0.8rem;
+}
+
+.iteminfo_mktprice {
+	font-size: 0.7rem;
+	line-height: 26px;
+	padding: 3px 5px;
+	text-decoration: line-through;
+}
+.sys_item_mktprice {
+	font-size: 0.7rem;
+	line-height: 26px;
+	padding: 3px 5px;
+	text-decoration: line-through;
+}
+.data-attrval{}
+.lh32 {
+	line-height: 32px;
+}
+
+.iteminfo_price {
+	color: #c00;
+	font-size: 8rem;
+	vertical-align: middle;
+}
+
+.sys_item_price {
+	color: #c00;
+	font-size: 0.7rem;
+	vertical-align: middle;
+}
+
+.iteminfo_buying {
+	background: #f7f7f7;
+	padding: 3px 0;
+}
+
+
+/*规格*/
+
+.sys_item_spec dl.iteminfo_parameter {
+	/*padding-top: 5px;*/
+	padding-bottom: 5px;
+	margin-bottom: 0;
+}
+
+.sys_item_spec dl.iteminfo_parameter dt {
+	line-height: 32px;
+	margin-bottom: 0;
+}
+
+
+
+.sys_spec_text {
+	padding-left: 0;
+}
+
+.sys_spec_text li {
+	float: left;
+	margin: 5px 5px;
+	outline: none;
+}
+
+.sys_spec_text li a {
+	padding: 3px 10px;
+	border: 1px solid #ccc;
+	background: #fff;
+	display: inline-block;
+	line-height: 26px;
+	font-size: 0.7rem;
+	border-radius: 3px;
+}
+
+.sys_spec_text li a:hover {
+	border: 1px solid #e4393c;
+    padding: 3px 10px;
+    display: inline-block;
+    text-decoration: none;
+    line-height: 26px;
+    font-size: 0.7rem;
+    border-radius: 3px;
+    background: #ff5000;
+    color: #fff;
+}
+
+.sys_spec_text li i {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	font-size: 0;
+	line-height: 0;
+	right: 2px;
+	bottom: 2px;
+	background: url(../images/sys_item_selected.gif) no-repeat right bottom;
+	z-index: 99;
+	display: none;
+}
+
+.sys_spec_text li.selected a {
+	border: 1px solid #e4393c;
+    padding: 3px 10px;
+    display: inline-block;
+    text-decoration: none;
+    line-height: 26px;
+    font-size: 0.7rem;
+    border-radius: 3px;
+    background: #ff5000;
+    color: #fff;
+}

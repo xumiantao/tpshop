@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>管理收货地址</title>
+		<link href="__PUBLIC__/aodai/css/mui.min.css" rel="stylesheet" />
+		<link href="__PUBLIC__/aodai/css/style.css" rel="stylesheet" />
+		<link href="__PUBLIC__/aodai/css/address.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-bg">
+			<div class="mui-pull-left">
+				<a href="javascript:void(window.history.go(-2));" title=""  ><img src="__PUBLIC__/aodai/images/top_arrowleft.png" /></a>
+			</div>
+			<h1 class="mui-title">管理收货地址</h1>
+			<div class="mui-pull-right">
+				<a href="{:U('Home/User/add_new')}" ><img src="__PUBLIC__/aodai/images/date_add.png" /></a>
+			</div>
+		</header>
+
+				<div class="mui-content mui-content-cot">
+					<volist name='adress' id='s'>
+					<div class="mui-card">
+						<div class="mui-card-content">
+							<div class="mui-card-content-inner mui-address">
+								<h4>收货人：{$s.consignee}  {$s.mobile}</h4>
+								<p>收货地址：{$s.detail_address} 
+								</p>
+
+								<div class="mui-card-footer">
+									<div class="mui-input-row mui-radio mui-left mui-input-address" data-url="{:U('Home/User/setdefaultaddress',array('address_id'=>$s['address_id']))}">
+										<label>设为默认(使用)</label>
+										<if condition="$s['is_default'] eq 1 ">
+												<input name="radio1" type="radio" checked="checked">
+										<else /> 
+												<input name="radio1" type="radio" >
+										</if>
+
+									</div>
+									<a class="mui-card-link" href="{:U('Home/User/editadress',array('address_id'=>$s['address_id']))}"><img src="__PUBLIC__/aodai/images/date_07.jpg" /><span>编辑</span></a>
+									<a href="{:U('Home/User/deletedress',array('address_id'=>$s['address_id']))}" class="mui-card-link"><span>删除 </span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</volist>
+				</div>
+			<script src="__PUBLIC__/aodai/js/jquery-2.1.4.js"></script>
+			<script type="text/javascript">
+			//ajax设置收获地址
+					$('.mui-input-address').click(function(){
+						var s =$(this).data('url');
+						$.ajax({
+							type:'post',
+							url:s,
+							dataType:'json',
+							contentType:"application/x-www-form-urlencoded;charset=UTF-8",
+							success:function(info){
+							}
+						});
+					});
+			</script>
+
+		<script src="__PUBLIC__/aodai/js/mui.min.js"></script>
+		<script src="__PUBLIC__/aodai/js/style.js"></script>
+	</body>
+
+</html>

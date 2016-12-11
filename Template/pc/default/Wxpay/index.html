@@ -1,0 +1,64 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/> 
+    <title>微信支付</title>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		ul,ol{list-style:none;}
+		body{background:#f5f5f5;}
+		.fukuan-top{width:100%;height:auto;background:#f5f5f5;}
+		.fukuan-top .zhanghao{font-size:1.2rem;font-weight:normal;color:#282828;text-align:center;line-height: 3rem;padding-top: 2rem;}
+		.fukuan-top .jiage{font-size:2.6rem;color:#de0000;text-align:center;line-height: 5rem;padding-bottom: 1rem;}
+		.fukuan-top .shoukuan{width:100%;padding:1.3rem 0.6rem;line-height: 0.2rem;height:0.2rem;font-size:1rem;color:#c4c4c4;}
+		.fukuan-top .shoukuan .lef{display:inline-block;float: left;}
+		.fukuan-top .shoukuan .rig{display:inline-block;float: right;padding-right:1.3rem;}
+		.fukuan-top .btn01{width:70%;padding:0.3rem 0;display:block;background:#fe0000;text-align:center;margin:1.6rem auto;color:#fff;font-size:1.6rem;border-radius:0.2rem;line-height: 2.6rem;border:0px;}
+		.fukuan-top .btn02{width:70%;padding:0.3rem 0;display:block;background:#4bca00;text-align:center;margin:1.6rem auto;color:#fff;font-size:1.6rem;border-radius:0.2rem;line-height: 2.6rem;border:0px;}
+		.stone{background:#fff;}
+	</style>
+</head>
+<body>
+	<div style="width:100%;" class="fukuan-top">
+	<h3 class="zhanghao">订单账号-stone</h3>
+	<h1 class="jiage">￥{$moeny}元</h1>
+	<div class="stone">
+		<div class="shoukuan">
+			<span class="lef">收款方</span>
+			<span class="rig">澳洲代购</span>
+		</div>
+	</div>
+	<div align="center">
+		<button class="btn02" type="button" onclick="callpay()" >立即支付</button>
+	</div>
+</div>
+    <script type="text/javascript">
+	//调用微信JS api 支付
+	function jsApiCall()
+	{
+		WeixinJSBridge.invoke(
+			'getBrandWCPayRequest',
+			<?php echo $jsApiParameters; ?>,
+			function(res){
+				WeixinJSBridge.log(res.err_msg);
+				alert(res.err_code+res.err_desc+res.err_msg);
+			}
+		);
+	}
+
+	function callpay()
+	{
+		if (typeof WeixinJSBridge == "undefined"){
+		    if( document.addEventListener ){
+		        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+		    }else if (document.attachEvent){
+		        document.attachEvent('WeixinJSBridgeReady', jsApiCall); 
+		        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+		    }
+		}else{
+		    jsApiCall();
+		}
+	}
+	</script>
+</body>
+</html>

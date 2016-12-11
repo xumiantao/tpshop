@@ -1,0 +1,86 @@
+[ 2016-08-29T00:54:20+08:00 ] ::1 /wechat/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000066s ]
+INFO: [ app_init ] --END-- [ RunTime:0.026464s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001464s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000165s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000491s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.053289s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.053659s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000980s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001265s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002557s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002794s ]
+
+[ 2016-08-29T00:54:56+08:00 ] ::1 /wechat/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000042s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000684s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000711s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000881s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000678s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000828s ]
+
+[ 2016-08-29T00:56:06+08:00 ] ::1 /wechat/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000670s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000907s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001062s ]
+NOTIC: [8] Undefined index: signature F:\wamp\www\wechat\Application\Home\Controller\IndexController.class.php 第 6 行.
+NOTIC: [8] Undefined index: timestamp F:\wamp\www\wechat\Application\Home\Controller\IndexController.class.php 第 7 行.
+NOTIC: [8] Undefined index: nonce F:\wamp\www\wechat\Application\Home\Controller\IndexController.class.php 第 8 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001064s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001243s ]
+
+[ 2016-08-29T01:18:13+08:00 ] ::1 /wechat/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000095s ]
+INFO: [ app_init ] --END-- [ RunTime:0.023289s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.014941s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015344s ]
+NOTIC: [8] Undefined index: signature F:\wamp\www\wechat\Application\Home\Controller\IndexController.class.php 第 6 行.
+NOTIC: [8] Undefined index: timestamp F:\wamp\www\wechat\Application\Home\Controller\IndexController.class.php 第 7 行.
+NOTIC: [8] Undefined index: nonce F:\wamp\www\wechat\Application\Home\Controller\IndexController.class.php 第 8 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.041018s ]
+INFO: [ app_end ] --END-- [ RunTime:0.041421s ]
+
+[ 2016-08-29T01:27:21+08:00 ] ::1 /wechat/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000661s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000792s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000941s ]
+NOTIC: [8] Undefined index: signature F:\wamp\www\wechat\Application\Home\Controller\IndexController.class.php 第 17 行.
+NOTIC: [8] Undefined index: timestamp F:\wamp\www\wechat\Application\Home\Controller\IndexController.class.php 第 18 行.
+NOTIC: [8] Undefined index: nonce F:\wamp\www\wechat\Application\Home\Controller\IndexController.class.php 第 19 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000727s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000867s ]
+
+[ 2016-08-29T01:27:32+08:00 ] ::1 /wechat/home/index/token
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000049s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000822s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000987s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001210s ]
+NOTIC: [2] file_get_contents() [<a href='function.file-get-contents'>function.file-get-contents</a>]: Unable to find the wrapper &quot;https&quot; - did you forget to enable it when you configured PHP? F:\wamp\www\wechat\Application\Home\Controller\IndexController.class.php 第 10 行.
+NOTIC: [2] file_get_contents(https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=wxb997ab9195650adb&amp;secret=8a26a3722665e96d9fd16e52431e1e2b) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory F:\wamp\www\wechat\Application\Home\Controller\IndexController.class.php 第 10 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001009s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001229s ]
+

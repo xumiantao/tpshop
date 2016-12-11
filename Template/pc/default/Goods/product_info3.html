@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<title>产品详情页</title>
+		<link href="__PUBLIC__/aodai/css/mui.min.css" rel="stylesheet" />
+		<link href="__PUBLIC__/aodai/css/style.css" rel="stylesheet" />
+		<link href="__PUBLIC__/aodai/css/product.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-bg">
+			<div class="mui-pull-left left_go">
+				<a href="javascript:void(window.history.go(-1));" title="" ><img src="__PUBLIC__/aodai/images/top_arrowleft.png" /></a>
+			</div>
+			<h1 class="mui-title">产品详情</h1>
+			<div class="mui-pull-right">
+			</div>
+		</header>
+		<div class="mui-content mui-content-cot ">
+			<div class="mui-product-img"><img src="{$goods.original_img}" width="70%" /></div>
+			<div class="mui-product">
+				<div class="mui-product-title">
+					<p>[新品] {$goods.goods_name}</p>
+				</div>
+				<div class="mui-product-button"><button type="button" class="mui-btn mui-btn-danger mui-btn-orange"><img src="__PUBLIC__/aodai/images/img.png" style="padding-right: 5px; vertical-align: middle;" />图文详情</button></div>
+				<div class="mui-product-money">
+					<p>￥{$goods.shop_price}<span>市场价￥{$goods.market_price}</span><span style="padding-left: 50px;">库存：{$goods.store_count}　销量：36瓶</span></p>
+				</div>
+			</div>
+			<div class="distance"></div>
+			<div class="mui-content mui-content-pro">
+				<ul id="list" class="mui-table-view mui-table-view-chevron" style="margin-top: 0;">
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right" href="product_inshop.html">
+							<div class="safe-left">请选择商品数量及规格</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="distance" style="margin-top: 0px;"></div>
+			<div class="mui-content">
+
+			<div class="mui-content mui-content-pro" >
+				<div id="slider" class="mui-slider" data-slider="4">
+					<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted mui-segmented-control-negative mui-protitle">
+						<a class="mui-control-item mui-active" href="{:U('Home/Goods/goodsInfo',array('goods_id'=>$goods['goods_id']))}">
+							图文详情
+						</a>
+						<a class="mui-control-item" href="{:U('Home/Goods/goodsInfo2',array('goods_id'=>$goods['goods_id']))}">
+							产品参数
+						</a>
+						<a class="mui-control-item" href="{:U('Home/Goods/goodsInfo3',array('goods_id'=>$goods['goods_id']))}">
+							用户评价
+						</a>
+						<a class="mui-control-item" href="{:U('Home/Goods/goodsInfo4',array('goods_id'=>$goods['goods_id']))}">
+							同店推荐
+						</a>
+					</div>
+			<div class="mui-slider-group" style="transform: translate3d(0px, 0px, 0px) translateZ(0px); transition-duration: 0ms;">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active mui-product-img aaa" style="padding-bottom: 80px;">
+						<volist name="goods_img" id="gi">
+						<img style="width:80%;" src="{$gi.image_url}" />
+						<br>
+					</volist>
+						<p >{$goods.goods_remark}</p>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content mui-active mui-product-img aaa" style="padding-bottom: 80px;">
+						<volist name="atr" id="ai">
+							<p><i>{$ai.attr_name}:</i><i>{$ai.attr_value}</i></p>
+						</volist>
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content mui-active mui-product-img aaa" style="padding-bottom: 80px;">
+							fgewtgwe
+					</div>
+					<div id="item4mobile" class="mui-slider-item mui-control-content mui-active mui-product-img aaa" style="padding-bottom: 80px;">
+							fgewtgwe
+					</div>
+			</div>
+			<nav class="mui-bar mui-bar-tab" style="margin-top: 5px; background: #fff">
+
+			<a class="mui-tab-item mui-border" href="keep.html">
+				<span class="mui-icon mui-icon"><img src="__PUBLIC__/aodai/images/store.png" width="100%" /></span>
+				<span class="mui-tab-label">收藏</span>
+			</a>
+			<a class="mui-tab-item mui-border" href="shopping_cart.html">
+				<span class="mui-icon mui-icon-shopping"><img src="__PUBLIC__/aodai/images/shopping_lax.png" width="100%" /><span class="mui-badge mui-badge-danger">1</span></span>
+				<span class="mui-tab-label">购物车</span>
+			</a>
+			<a class="mui-tab-item mui-buttom-shopping" href="product_inshop.html">
+				<span class="mui-tab-label">加入购物车</span>
+			</a>
+			<a class="mui-tab-item mui-buttom-inshop" href="established.html">
+				<span class="mui-tab-label">立即购买</span>
+			</a>
+
+		</nav>
+			<script src="__PUBLIC__/aodai/js/mui.min.js"></script>
+			<script src="__PUBLIC__/aodai/js/style.js"></script>
+			<script src="__PUBLIC__/aodai/js/jquery.min.js"></script>
+			<script type="text/javascript">
+				$('.dec').click(function() {
+					var i=$(".num").val();
+					i--;
+					if(i==0){
+						i=1;
+					}
+					$('.num').val(i);
+				});
+				$('.add').click(function() {
+					var i=$(".num").val();
+					i++;
+					$('.num').val(i);
+				});
+			$('.mui-control-item').click(function(){
+				var b=$(this).index();
+				$(this).show();
+			});
+			</script>	
+
+	</body>
+
+</html>

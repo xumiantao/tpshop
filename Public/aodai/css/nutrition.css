@@ -1,0 +1,48 @@
+.mui-segmented-control-negative.mui-segmented-control-inverted .mui-control-item.mui-active {
+	color: #333333;
+	border-top: 0px solid #ff5000;
+	background: #fff;
+	border-bottom: 1px solid #ddd;
+}
+
+.mui-off-canvas-wrap-new {
+	width: 100%;
+}
+
+.mui-scroll-wrapper {
+	background: #fff;
+	color: #333;
+}
+
+.mui-scroll-wrapper .mui-scroll .mui-scroll-title a {
+	color: #333333;
+	border-bottom: 1px solid #333;
+}
+
+.mui-scroll-title {
+	width: 30%;
+	float: left;
+	border-bottom: 1px solid #fff;
+	color: #fff;
+	margin: 10px 20px;
+	text-align: center;
+	line-height: 50px;
+}
+
+.mui-off-canvas-wrap.mui-active {
+	overflow: inherit;
+}
+
+.mui-off-canvas-wrap {
+	position: absolute;
+}
+
+.mui-popover .mui-scroll-wrapper {
+     margin: 7px 0; 
+    border-radius: 7px;
+    background-clip: padding-box;
+    height: 180px;
+}
+.mui-popover .mui-popover-arrow {
+    top: -16px;
+} 

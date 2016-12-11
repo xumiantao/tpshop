@@ -1,0 +1,73 @@
+<include file="Public/min-header" />
+<div class="wrapper">
+	<include file="Public/breadcrumb"/>
+	<section class="content">
+       <div class="row">
+       		<div class="col-xs-12">
+	       		<div class="box">
+	             <div class="box-header">
+	               	<nav class="navbar navbar-default">	     
+				        <div class="collapse navbar-collapse">
+				          <form class="navbar-form form-inline" action="{:U('Ad/adList')}" method="post">
+				            <div class="form-group">
+				              	<input type="text" name="keywords" class="form-control" placeholder="请输入公告名称">
+				            </div>
+				            <div class="form-group">                       
+				            	 <select name="pid" class="form-control">
+                                            <option value="0">==查看所有==</option>
+                                      <volist name="ad_position_list" id="item" key="k">
+                                            <option value=""></option>
+                                      </volist>                  
+                                 </select>   
+				            </div>
+				            <button type="submit" class="btn btn-primary">查询</button>
+				            <div class="form-group pull-right">
+					            <a href="{:U('Ad/ad',array('act'=>'add'))}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> 新增公告</a>
+				            </div>		          
+				          </form>
+				      	</div>
+	    			</nav>
+
+	             </div>
+	             <div class="box-body">
+	           	 <div class="row">
+	            	<div class="col-sm-12">
+		              <table id="list-table" class="table table-bordered table-striped dataTable">
+		                 <thead>
+		                   <tr role="row">
+                                           <th>公告名称</th>
+                                           <th>公告内容</th>
+
+		                   </tr>
+		                 </thead>
+						<tbody>
+                          <volist name="list" id="vo">{$vo.id}:{$vo.name}
+                             <tr role="row">    
+                                     <td>{$vo[ad_name]}</td>
+                                     
+	                     <td>{$vo.ad_content}</td>	                                              
+		                     <td>
+		                      <a class="btn btn-primary" href="{:U('Ad/adedit',array('act'=>'edit','ad_id'=>$vo['ad_id']))}"><i class="fa fa-pencil"></i></a>
+		                      <a class="btn btn-danger" onclick="delfunc(this)" data-url="{:U('Ad/adHandle')}" data-id="{$vo.ad_id}"><i class="fa fa-trash-o"></i></a>
+				     </td>
+		                   </tr>
+		                  </volist>
+		                   </tbody>
+		                 <tfoot>
+		                 
+		                 </tfoot>
+		               </table>
+	               </div>
+	          </div>
+
+	          </div>
+	        </div>
+       	</div>
+       </div>
+   </section>
+<script>
+
+</script>
+</div>
+</body>
+</html>   
